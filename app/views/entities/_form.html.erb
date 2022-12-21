@@ -18,10 +18,32 @@
 
   <div>
     <%= form.label :amount, style: "display: block" %>
-    <%= form.number_field :amount %>
+    <%= form.number_field :amount, placeholder: 'Amount (USD)' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="select-field">
+    <%= form.label :group_id, 'Category' %>
+    <%= form.collection_select :group_id, current_user.groups, :id, :name %>
+  </div>
+
+  <div class="button-container">
+    <%= form.submit 'Create transaction' %>
   </div>
 <% end %>
+<%# <%= form_with model: @entity do |f| %
+  <div class="field">
+    <%= f.text_field :name, placeholder: 'Name' %
+  </div>
+
+  <div class="field">
+    <%= f.number_field :amount, placeholder: 'Amount (USD)' %
+  </div>
+
+  <div class="select-field">
+    <%= f.label :group_id, 'Category' %
+    <%= f.collection_select :group_id, current_user.groups, :id, :name %
+  </div>
+
+  <div class="button-container">
+    <%= f.submit 'Create transaction', class: 'second-button' %
+  </div> %>
