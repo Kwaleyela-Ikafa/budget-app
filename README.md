@@ -34,9 +34,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Blog App] <a name="about-project"></a>
+# 📖 [Count (Budget App)] <a name="about-project"></a>
 
-**[Bolg App]** is a simple Ruby on Rails CRUD app that allows the user to post, edit, save, and view their blog posts with time-stamped entries.
+**[Budget app]** is a project from the fifth module of the Microverse program. It's the capstone project of its module and it consists of a web application that tracks your expenses.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -79,7 +79,7 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository to your desired folder:
-- Clone [this repository](https://github.com/Kwaleyela-Ikafa/blog-app.git)
+- Clone [this repository](https://github.com/Kwaleyela-Ikafa/budget-app.git)
 
 
 ### Install
