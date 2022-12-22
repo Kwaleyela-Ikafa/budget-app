@@ -8,6 +8,10 @@ class GroupsController < ApplicationController
     @groups = current_user.groups.includes(group_entities: :entity)
   end
 
+  # def older_index
+  #   @groups = Group.where(user: current_user).includes(:group_expenses).order(created_at: :asc)
+  # end
+
   # GET /groups/1 or /groups/1.json
   def show
     @group = Group.find(params[:id])

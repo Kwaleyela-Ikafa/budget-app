@@ -28,10 +28,6 @@
   }
 }
 
-.entities-list-item {
-  margin-bottom: 20px;
-}
-
 .group-info {
   display: flex;
   flex-direction: column;
@@ -65,21 +61,8 @@
   }
 }
 
-// .entity-info {
-//   height: 65px;
-//   border-bottom: 1px solid $medium-text;
-// }
+.amount {
+  @include headings;
 
-// .entity-amount {
-//   height: 40px;
-// }
-
-// .amount {
-//   @include headings;
-
-//   color: $dark-main;
-// }
-
-// .second-button {
-//   background-color: $second;
-// }
+  color: $dark-main;
+}

@@ -1,29 +1,38 @@
-<header class="app-header">
+<header class="d-flex justify-content-between top p-2">
   <%= link_to fa_icon('arrow-left'), groups_path, class: 'back-arrow' %>
-
   <h1 class="page-title">TRANSACTIONS</h1>
-
-  <p class="header-link"><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+  <p></p>
 </header>
 
-<section class="groups-list-item">
-  <img src="<%= @group.icon %>" alt="Category icon image">
-  <h2><%= @group.name %></h2>
-  <% total = 0.00 %>
-  <% @group.group_entities.each {|group_entity| total += group_entity.entity.amount} %>
-  <span class="amount">$<%= total %></span>
+<section class="d-flex border mb-1 p-5">
+  <div class="groups-list-item ">
+    <div class="">
+      <img src="<%= @group.icon %>" alt="Category icon image">
+    </div>
+    
+    <div class="col-5">
+      <h2><%= @group.name %></h2>
+      <p><%= @group.created_at.strftime("%d %h %Y") %></p>
+    </div>
+
+    <div>
+      <% total = 0.00 %>
+      <% @group.group_entities.each {|group_entity| total += group_entity.entity.amount} %>
+      <span class="amount">$<%= total %></span>
+    </div>
+  </div>
 </section>
 
 <% if @group_entities.empty? %>
   <h2 class="splash-welcome">There are not transactions yet!</h2>
   <p class="splash-text">Create a transaction for this category by clicking on the button below.</p>
 <% else %>
-  <ul>
+  <ul class="justify-content-between align-items border bg-light p-1">
     <% @group_entities.each do |group_entity| %>
-      <li class="entities-list-item">
+      <li class="entities-list-item mt-3">
         <div class="entity-info">
           <h2><%= group_entity.entity.name %></h2>
-          <p><%= group_entity.entity.created_at %></p>
+          <p><%= @group.created_at.strftime("%d %h %Y")%> at <%= @group.created_at.strftime("%l.%M%P")%></p>
         </div>
         <div class="entity-amount">
           <span>Amount:</span>
@@ -33,18 +42,7 @@
     <% end %>
   </ul>
 <% end %>
-<div class="button-container">
-  <%= button_to 'New Transaction', new_entity_path, method: :get, class: 'second-button' %>
+<div class="text-light footer d-flex justify-content-center p-3">
+  <%= button_to 'New Transaction', new_entity_path, method: :get, class: 'btn border border-dark p-2' %>
 </div>
 
-
-<%# <p style="color: green"><%= notice %</p>
-
-<%= render @group %
-
-<div>
-  <%= link_to "Edit this group", edit_group_path(@group) % |
-  <%= link_to "Back to groups", groups_path %
-
-  <%= button_to "Destroy this group", @group, method: :delete %
-</div> %>
