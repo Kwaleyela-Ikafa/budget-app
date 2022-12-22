@@ -1,21 +1,16 @@
 class GroupsController < ApplicationController
-  # before_action :set_group, only: %i[show edit update destroy]
   before_action :authenticate_user!
   # load_and_authorize_resource
 
   # GET /groups or /groups.json
   def index
-    @groups = current_user.groups.includes(group_entities: :entity)
+    @groups = current_user.groups.includes([group_entities: :entity])
   end
-
-  # def older_index
-  #   @groups = Group.where(user: current_user).includes(:group_expenses).order(created_at: :asc)
-  # end
 
   # GET /groups/1 or /groups/1.json
   def show
-    @group = Group.find(params[:id])
-    @group_entities = GroupEntity.includes(:group, :entity).where(group_id: params[:id]).order(created_at: :desc)
+    @group = Group.includes(group_entities: :entity).find(params[:id])
+    @group_entities = GroupEntity.includes([:entity]).where(group_id: params[:id]).order(created_at: :desc)
   end
 
   # GET /groups/new
@@ -28,7 +23,7 @@ class GroupsController < ApplicationController
 
   # POST /groups or /groups.json
   def create
-    @group = current_user.groups.new(group_params)
+    @group = current_user.groups.new(group_params).includes([:entity])
 
     respond_to do |format|
       if @group.save
