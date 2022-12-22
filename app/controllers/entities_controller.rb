@@ -1,5 +1,7 @@
 class EntitiesController < ApplicationController
-  before_action :set_entity, only: %i[show edit update destroy]
+  # before_action :set_entity, only: %i[show edit update destroy]
+  before_action :authenticate_user!
+  # load_and_authorize_resource
 
   # GET /entities or /entities.json
   def index
@@ -19,11 +21,12 @@ class EntitiesController < ApplicationController
 
   # POST /entities or /entities.json
   def create
-    @entity = Entity.new(entity_params)
+    @entity = current_user.entities.new(entity_params)
 
     respond_to do |format|
       if @entity.save
-        format.html { redirect_to entity_url(@entity), notice: 'Entity was successfully created.' }
+        @group_entity = @entity.group_entities.create(group_entity_params)
+        format.html { redirect_to group_path(@group_entity.group_id), notice: 'Entity was successfully created.' }
         format.json { render :show, status: :created, location: @entity }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,5 +68,13 @@ class EntitiesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def entity_params
     params.require(:entity).permit(:name, :amount)
+  end
+
+  # def entity_params
+  #   params.require(:entity).permit(:name, :amount)
+  # end
+
+  def group_entity_params
+    params.require(:entity).permit(:group_id)
   end
 end

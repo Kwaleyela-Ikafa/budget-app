@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <div class="p-2">
+    <%= form.text_field :name, placeholder: 'Name', class: 'form-control mb-2' %>
   </div>
 
-  <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
+    <div class="p-2">
+    <%= form.text_field :icon, placeholder: 'Icon\'s link', class: 'form-control mb-2' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="text-light footer d-flex justify-content-center p-3">
+    <%= form.submit 'Create Group', class: 'btn border border-dark p-2'  %>
   </div>
 <% end %>

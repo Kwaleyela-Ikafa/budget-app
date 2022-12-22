@@ -1,9 +1,10 @@
-<h1>New group</h1>
+<header class="d-flex justify-content-between top p-2">
+  <%= link_to fa_icon('arrow-left'), groups_path, class: 'back-arrow' %>
+  <h1 class="page-title">CATEGORIES</h1>
+  <p></p>
+</header>
 
 <%= render "form", group: @group %>
-
-<br>
-
 <div>
   <%= link_to "Back to groups", groups_path %>
 </div>

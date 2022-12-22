@@ -1,9 +1,9 @@
-<h1>New entity</h1>
+<header class="d-flex justify-content-between top p-2">
+  <%= link_to fa_icon('arrow-left'), :back, class: 'back-arrow' %>
+  <h1 class="page-title">TRANSACTIONS</h1>
+  <p></p>
+</header>
 
 <%= render "form", entity: @entity %>
 
 <br>
-
-<div>
-  <%= link_to "Back to entities", entities_path %>
-</div>

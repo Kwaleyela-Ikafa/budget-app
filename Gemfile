@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+gem 'sassc-rails'
+
+gem 'cancancan', '~> 1.9'
+
+gem 'font-awesome-rails'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
 
@@ -28,6 +34,8 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'devise'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
