@@ -1,0 +1,42 @@
+<header class="d-flex justify-content-between p-2 ">
+  <%= link_to fa_icon('arrow-left'), root_path, class: 'back-arrow' %>
+  <h1 class="page-title">CATEGORIES</h1>
+  <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "button btn text-light" %>
+</header>
+
+<div class="container">
+
+    <% if @groups.empty? %>
+      <h2 class="splash-welcome">There are not categories yet!</h2>
+      <p class="splash-text">Create your first category by clicking on the button below.</p>
+    <% else %>
+      <ul class="groups-list">
+        <% @groups.each do |group| %>
+        <%= link_to group_path(group), class: 'text-decoration-none' do %>
+          <div class="d-flex border mb-1 p-4 mt-5">
+          <li class="groups-list-item">
+            <div class="">
+              <img src="<%= group.icon %>" alt="Category icon image">
+            </div>
+
+            <div class="col-5">
+              <h2><%= group.name %></h2>
+              <p><%= group.created_at.strftime("%d %h %Y")  %></p>
+            </div>
+
+            <div>
+              <% total = 0.00 %>
+              <% group.group_entities.each {|group_entity| total += group_entity.entity.amount} %>
+              <span class="amount">$<%= total %></span>
+            </div>
+          </div>
+          </li>
+        <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+
+  <div class="button p-3">
+    <%= link_to 'New Category', new_group_path, method: :get, class: 'button btn border border-light text-light p-2 w-100' %>
+  </div>
+</div> 
