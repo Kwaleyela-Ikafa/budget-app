@@ -58,7 +58,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- comming soon ⌛
+- [live demo](https://budget-app-r08m.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
