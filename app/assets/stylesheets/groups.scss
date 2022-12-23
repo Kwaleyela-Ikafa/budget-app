@@ -74,3 +74,11 @@
 .button {
   background-color: $second;
 }
+
+
+.app-header {
+  align-items: center;
+  background: linear-gradient(0deg, $dark-main, $light-main);
+  height: 75px;
+  margin-bottom: 20px;
+}
