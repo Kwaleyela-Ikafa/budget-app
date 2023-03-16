@@ -58,7 +58,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [live demo](https://budget-app-r08m.onrender.com)
+- [live demo](https://stormy-beyond-38675.herokuapp.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
